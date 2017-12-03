@@ -3,6 +3,13 @@ import { Router } from '@angular/router';
 
 import { AuthenticationService } from '../../authentication/authentication.service';
 
+interface NavRoute {
+    routeName: string;
+    routeLink: string;
+    routeIconClass: string;
+    subRoutes: any[] | null;
+}
+
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
@@ -11,9 +18,29 @@ import { AuthenticationService } from '../../authentication/authentication.servi
 export class HeaderComponent implements OnInit {
 
     menuHidden = true;
-
+    navRoutes: NavRoute[] = [];
     constructor(private router: Router,
-        private authenticationService: AuthenticationService) { }
+        private authenticationService: AuthenticationService) {
+
+        this.navRoutes.push({
+            routeName: 'Home',
+            routeLink: '/home',
+            routeIconClass: 'fa fa-home',
+            subRoutes: null
+        });
+        this.navRoutes.push({
+            routeName: 'About',
+            routeLink: '/about',
+            routeIconClass: 'fa fa-question-circle',
+            subRoutes: [{
+                routeName: 'Link 1',
+                routeLink: '/about'
+            }, {
+                routeName: 'Link2',
+                routeLink: '/about'
+            }]
+        });
+    }
 
     ngOnInit() { }
 

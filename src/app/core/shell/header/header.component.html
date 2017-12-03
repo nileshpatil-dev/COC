@@ -1,20 +1,30 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" routerLink="/home">COC</a>
+        <a class="navbar-brand" routerLink="/">COC</a>
         <button class="navbar-toggler" type="button" aria-controls="navbar-menu" aria-label="Toggle navigation" (click)="toggleMenu()"
             [attr.aria-expanded]="!menuHidden">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div id="navbar-menu" class="collapse navbar-collapse float-xs-none" [ngbCollapse]="menuHidden">
             <div class="navbar-nav">
-                <a class="nav-item nav-link text-uppercase" routerLink="/home" routerLinkActive="active">
-                    <i class="fa fa-home"></i>
-                    <span>Home</span>
-                </a>
-                <a class="nav-item nav-link text-uppercase" routerLink="/about" routerLinkActive="active">
-                    <i class="fa fa-question-circle"></i>
-                    <span>About</span>
-                </a>
+                <div *ngFor="let navRoute of navRoutes; let i = index;">
+                    <a *ngIf="!navRoute.subRoutes" class="nav-item nav-link text-uppercase" routerLink="{{navRoute.routeLink}}" routerLinkActive="active">
+                        <i class="{{navRoute.routeIconClass}}"></i>
+                        <span>{{ navRoute.routeName }}</span>
+                    </a>
+                    <div *ngIf="navRoute.subRoutes" class="nav-item" ngbDropdown placement="bottom-left">
+                        <a class="nav-link text-uppercase" ngbDropdownToggle>
+                            <i class="{{navRoute.routeIconClass}}"></i>
+                            <span>{{ navRoute.routeName }}</span>
+                        </a>
+                        <div ngbDropdownMenu>
+                            <a *ngFor="let subRoute of navRoute.subRoutes;" class="nav-item nav-link text-uppercase" routerLink="{{subRoute.routeLink}}"
+                                routerLinkActive="active">
+                                <span>{{ subRoute.routeName }}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="navbar-nav ml-auto">
                 <div class="nav-item" ngbDropdown placement="bottom-right">

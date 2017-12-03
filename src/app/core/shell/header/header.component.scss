@@ -7,3 +7,10 @@
 .nav-link.dropdown-toggle {
   cursor: pointer;
 }
+
+.dropdown-menu > a{
+    color: black !important;
+    text-decoration: none;
+    background-color: transparent;
+    border-bottom: 1px solid #ddd;
+}
