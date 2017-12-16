@@ -40,6 +40,15 @@ export class HeaderComponent implements OnInit {
                 routeLink: '/about'
             }]
         });
+        this.navRoutes.push({
+            routeName: 'Masters',
+            routeLink: '/masters',
+            routeIconClass: 'fa fa-question-circle',
+            subRoutes: [{
+                routeName: 'Department',
+                routeLink: '/masters/department'
+            }]
+        });
     }
 
     ngOnInit() { }
