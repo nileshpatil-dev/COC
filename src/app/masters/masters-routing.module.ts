@@ -4,6 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { Route } from '../core/route.service';
 import { MastersComponent } from './masters.component';
 import { DepartmentComponent } from './department/department.component';
+import { DoctorDepartmentComponent } from './doctor-department/doctor-department.component';
+import { DoctorComponent } from './doctor/doctor.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = Route.withShell([
     {
@@ -12,6 +15,18 @@ const routes: Routes = Route.withShell([
             path: 'department',
             component: DepartmentComponent,
             data: { title: 'Department Master' }
+        }, {
+            path: 'doctor-department',
+            component: DoctorDepartmentComponent,
+            data: { title: 'Doctor Department Master' }
+        }, {
+            path: 'doctor',
+            component: DoctorComponent,
+            data: { title: 'Doctor Master' }
+        }, {
+            path: 'user',
+            component: UserComponent,
+            data: { title: 'User Master' }
         }]
     }
 ]);

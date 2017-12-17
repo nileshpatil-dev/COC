@@ -12,6 +12,7 @@ export class MastersComponent implements OnInit {
 
     ngOnInit() {
         this.masterTitle = this.router.url.split('/')[2] || '';
+        console.log(this.masterTitle);
     }
 
 }

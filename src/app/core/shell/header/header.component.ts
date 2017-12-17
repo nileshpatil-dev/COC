@@ -47,6 +47,15 @@ export class HeaderComponent implements OnInit {
             subRoutes: [{
                 routeName: 'Department',
                 routeLink: '/masters/department'
+            }, {
+                routeName: 'Doctor Department',
+                routeLink: '/masters/doctor-department'
+            }, {
+                routeName: 'Doctor',
+                routeLink: '/masters/doctor'
+            }, {
+                routeName: 'User',
+                routeLink: '/masters/user'
             }]
         });
     }
