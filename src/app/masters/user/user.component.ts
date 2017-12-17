@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MastersService } from '../masters.service';
 
 @Component({
     selector: 'app-masters-user',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
  export class UserComponent implements OnInit {
 
-    constructor() { }
+    constructor(private mastersService: MastersService) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.mastersService.changeTitle('User Master');
+    }
 
 }

@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { MastersService } from '../masters.service';
 
 @Component({
     selector: 'app-masters-doctor-department',
     templateUrl: './doctor-department.component.html'
 })
- export class DoctorDepartmentComponent implements OnInit {
+export class DoctorDepartmentComponent implements OnInit {
 
-    constructor() { }
+    constructor(private mastersService: MastersService) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.mastersService.changeTitle('Doctor Department Master');
+    }
 
 }

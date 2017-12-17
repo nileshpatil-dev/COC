@@ -7,6 +7,7 @@ import { DepartmentComponent } from './department/department.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { DoctorDepartmentComponent } from './doctor-department/doctor-department.component';
 import { UserComponent } from './user/user.component';
+import { MastersService } from './masters.service';
 
 @NgModule({
     imports: [
@@ -19,6 +20,7 @@ import { UserComponent } from './user/user.component';
         DoctorComponent,
         UserComponent,
         DoctorDepartmentComponent
-    ]
+    ],
+    providers: [MastersService]
 })
 export class MastersModule { }
